@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
 
-// id, size, x, y, opacity, animationDuration
-// id, size, x, y, delay, animationDuration
-
+// Componente que renderiza o fundo animado de estrelas e meteoros
 export const StarBackground = () => {
+    // Estado para armazenar as estrelas
     const [stars, setStars] = useState([]);
+    // Estado para armazenar os meteoros
     const [meteors, setMeteors] = useState([]);
 
+    // Efeito para gerar estrelas e meteoros ao montar o componente
     useEffect(() => {
         generateStars();
         generateMeteors();
 
+        // Atualiza as estrelas ao redimensionar a janela
         const handleResize = () => {
             generateStars();
         };
 
         window.addEventListener("resize", handleResize);
 
+        // Limpa o event listener ao desmontar
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Função para gerar estrelas aleatórias
     const generateStars = () => {
         const numberOfStars = Math.floor(
             (window.innerWidth * window.innerHeight) / 10000
@@ -41,6 +45,7 @@ export const StarBackground = () => {
         setStars(newStars);
     };
 
+    // Função para gerar meteoros aleatórios
     const generateMeteors = () => {
         const numberOfMeteors = 4;
         const newMeteors = [];
@@ -59,8 +64,10 @@ export const StarBackground = () => {
         setMeteors(newMeteors);
     };
 
+    // Renderiza as estrelas e meteoros na tela
     return (
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+            {/* Renderiza cada estrela */}
             {stars.map((star) => (
                 <div
                     key={star.id}
@@ -76,6 +83,7 @@ export const StarBackground = () => {
                 />
             ))}
 
+            {/* Renderiza cada meteoro */}
             {meteors.map((meteor) => (
                 <div
                     key={meteor.id}
