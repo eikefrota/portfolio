@@ -37,16 +37,77 @@ export const ThemeToggle = () => {
         <button
             onClick={toggleTheme}
             className={cn(
-                "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
-                "focus:outlin-hidden"
+                "flex items-center px-2 py-1",
+                "focus:outline-none"
             )}
+            aria-label="Alternar tema"
+            style={{
+                border: 'none',
+                background: 'none',
+                cursor: 'pointer',
+            }}
         >
-            {/* Ícone muda conforme o tema */}
-            {isDarkMode ? (
-                <Sun className="h-6 w-6 text-yellow-300" />
-            ) : (
-                <Moon className="h-6 w-6 text-blue-900" />
-            )}
+            <div
+                className={cn(
+                    "flex items-center transition-all duration-300",
+                    isDarkMode
+                        ? "bg-gray-700 text-white"
+                        : "bg-gray-100 text-gray-400"
+                )}
+                style={{
+                    borderRadius: '999px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+                    padding: '0.15rem 0.4rem',
+                    minWidth: '70px',
+                    height: '26px',
+                    fontSize: '0.7rem',
+                    fontWeight: 'bold',
+                    position: 'relative',
+                    justifyContent: 'center',
+                }}
+            >
+                {isDarkMode ? (
+                    <>
+                        <div style={{
+                            background: '#fff',
+                            borderRadius: '50%',
+                            width: '20px',
+                            height: '20px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            left: '2px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+                        }}>
+                            <Moon className="w-4 h-4 text-gray-700" />
+                        </div>
+                        <span style={{ marginLeft: '24px', color: '#fff', letterSpacing: '1px' }}>DARK</span>
+                    </>
+                ) : (
+                    <>
+                        <span style={{ marginRight: '24px', color: '#bbb', letterSpacing: '1px' }}>LIGHT</span>
+                        <div style={{
+                            background: '#fff',
+                            borderRadius: '50%',
+                            width: '20px',
+                            height: '20px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'absolute',
+                            right: '2px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+                        }}>
+                            <Sun className="w-4 h-4 text-gray-400" />
+                        </div>
+                    </>
+                )}
+            </div>
         </button>
     );
 };

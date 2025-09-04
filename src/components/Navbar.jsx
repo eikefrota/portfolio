@@ -2,6 +2,7 @@ import { href } from "react-router-dom";
 import { cn } from "@/lib/utils"
 import { useEffect, useState } from "react";
 import { X, Menu } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
     { name: "Home", href: "#hero" },
@@ -39,7 +40,7 @@ export const Navbar = () => {
                 </a>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden md:flex space-x-8 items-center">
                     {navItems.map((item, key) => (
                         <a
                             key={key}
@@ -48,6 +49,7 @@ export const Navbar = () => {
                             {item.name}
                         </a>
                     ))}
+                    <ThemeToggle />
                 </div>
 
                 {/* Mobile Nav */}
@@ -68,7 +70,7 @@ export const Navbar = () => {
                         : "opacity-0 pointer-events-none"
                 )}>
 
-                    <div className="flex flex-col space-y-8 text-xl">
+                    <div className="flex flex-col space-y-8 text-xl items-center">
                         {navItems.map((item, key) => (
                             <a
                                 key={key}
@@ -77,6 +79,7 @@ export const Navbar = () => {
                                 {item.name}
                             </a>
                         ))}
+                        <ThemeToggle />
                     </div>
                 </div>
 
