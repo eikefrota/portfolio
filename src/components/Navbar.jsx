@@ -1,9 +1,14 @@
-import { href } from "react-router-dom";
+// (Removido: importação desnecessária de href do react-router-dom)
+// Importa função utilitária para manipulação de classes CSS
 import { cn } from "@/lib/utils"
+// Importa hooks do React
 import { useEffect, useState } from "react";
+// Importa ícones do menu
 import { X, Menu } from "lucide-react";
+// Importa componente de alternância de tema
 import { ThemeToggle } from "./ThemeToggle";
 
+// Itens de navegação do menu
 const navItems = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
@@ -12,19 +17,22 @@ const navItems = [
     { name: "Contact", href: "#contact" }
 ];
 
+// Componente principal da barra de navegação
 export const Navbar = () => {
+    // Estado para controlar se a página foi rolada
     const [isScrolled, setIsScrolled] = useState(false);
+    // Estado para controlar se o menu mobile está aberto
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
+        // Função para atualizar o estado ao rolar a página
         const handleScroll = () => {
-            setIsScrolled(window.screenY > 10)
+            setIsScrolled(window.scrollY > 10)
         }
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
 
     return (
         <nav className={cn(
@@ -33,13 +41,14 @@ export const Navbar = () => {
 
             <div className="container flex items-center justify-between">
 
+                {/* Logo e link para o topo */}
                 <a className="text-xl font-bold text-primary flex items-center" href="#hero">
                     <span className="relative z-10">
                         <span className="text-glow text-foreground">EikeFrota</span> Portfolio
                     </span>
                 </a>
 
-                {/* Desktop Nav */}
+                {/* Navegação desktop */}
                 <div className="hidden md:flex space-x-8 items-center">
                     {navItems.map((item, key) => (
                         <a
@@ -52,16 +61,16 @@ export const Navbar = () => {
                     <ThemeToggle />
                 </div>
 
-                {/* Mobile Nav */}
+                {/* Botão do menu mobile */}
                 <button
                     onClick={() => setIsMenuOpen((prev) => !prev)}
                     className="md:hidden p-2 text-foreground z-50"
                     aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
                 >
-
-                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />} {" "}
                 </button>
 
+                {/* Menu mobile sobreposto */}
                 <div className={cn(
                     "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
                     "transition-all duration-300 md:hidden",
