@@ -28,7 +28,7 @@ const projects = [
         description:
             "Meu portfólio pessoal, desenvolvido para apresentar meus projetos, habilidades e experiências de forma clara e interativa, com navegação intuitiva e design responsivo.",
         image: "/projects/portfolio.png",
-        tags: ["React", "JavaScript", "CSS3", "HTML5"],
+        tags: ["React", "Vite", "JavaScript", "Tailwind CSS"],
         demoUrl: "#",
         githubUrl: "#",
     }
