@@ -1,4 +1,6 @@
-import { ArrowUp, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
+import { MdEmail, MdArrowUpward } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/hooks/use-language.jsx";
 import { translations } from "@/lib/translations";
 
@@ -19,18 +21,18 @@ export const Footer = () => {
                         aria-label={translations[language].footer_top}
                         style={{ minWidth: 48, minHeight: 48 }}
                     >
-                        <ArrowUp size={26} />
+                        <MdArrowUpward size={26} />
                     </a>
                 </div>
                 <div className="flex justify-end items-center gap-3">
                     <a href="https://linkedin.com/in/eikefrota" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
-                        <Linkedin size={26} />
+                        <FaLinkedin size={26} />
                     </a>
                     <a href="mailto:eikefrota@gmail.com" aria-label="Email" className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
-                        <Mail size={26} />
+                        <MdEmail size={26} />
                     </a>
-                    <a href="https://linkedin.com/in/eikefrota" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
-                        <MessageCircle size={26} />
+                    <a href="https://wa.me/5585999062339" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="p-3 rounded-full bg-primary/10 hover:bg-primary/20 text-primary transition-colors">
+                        <FaWhatsapp size={26} />
                     </a>
                 </div>
             </div>

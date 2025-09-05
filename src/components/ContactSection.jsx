@@ -1,4 +1,7 @@
-import { Instagram, Linkedin, Mail, MapPin, Phone, Send, Github, MessageCircle } from "lucide-react";
+import { FaInstagram, FaLinkedin, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
+import { Send } from "lucide-react";
+// ...existing code...
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -39,7 +42,7 @@ export const ContactSection = () => {
                         <div className="space-y-6 flex flex-col items-center justify-center gap-5">
                             <div className="flex items-start space-x-4 w-full max-w-xs mx-auto">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <Mail className="h-6 w-6 text-primary" />
+                                    <MdEmail className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="flex flex-col items-center text-center w-full">
                                     <h4 className="font-medium">{translations[language].contact_email}</h4>
@@ -53,7 +56,7 @@ export const ContactSection = () => {
                             </div>
                             <div className="flex items-start space-x-4 w-full max-w-xs mx-auto">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <Phone className="h-6 w-6 text-primary" />
+                                    <MdPhone className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="flex flex-col items-center text-center   w-full">
                                     <h4 className="font-medium">{translations[language].contact_phone}</h4>
@@ -67,7 +70,7 @@ export const ContactSection = () => {
                             </div>
                             <div className="flex items-start space-x-4 w-full max-w-xs mx-auto">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <MapPin className="h-6 w-6 text-primary" />
+                                    <MdLocationOn className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="flex flex-col items-center text-center w-full">
                                     <h4 className="font-medium">{translations[language].contact_location}</h4>
@@ -87,7 +90,7 @@ export const ContactSection = () => {
                                     aria-label="LinkedIn"
                                     className="group transition-transform duration-200"
                                 >
-                                    <Linkedin className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
+                                    <FaLinkedin className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
                                 </a>
                                 <a
                                     href="https://github.com/eikefrota"
@@ -96,7 +99,7 @@ export const ContactSection = () => {
                                     aria-label="GitHub"
                                     className="group transition-transform duration-200"
                                 >
-                                    <Github className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
+                                    <FaGithub className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
                                 </a>
                                 <a
                                     href="https://wa.me/5585999062339"
@@ -105,7 +108,7 @@ export const ContactSection = () => {
                                     aria-label="WhatsApp"
                                     className="group transition-transform duration-200"
                                 >
-                                    <MessageCircle className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
+                                    <FaWhatsapp className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
                                 </a>
                                 <a
                                     href="https://www.instagram.com/eikefrotaa/"
@@ -114,7 +117,7 @@ export const ContactSection = () => {
                                     aria-label="Instagram"
                                     className="group transition-transform duration-200"
                                 >
-                                    <Instagram className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
+                                    <FaInstagram className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300 group-hover:scale-110 group-hover:-translate-y" />
                                 </a>
                             </div>
                         </div>

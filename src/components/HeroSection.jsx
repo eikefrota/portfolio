@@ -22,9 +22,11 @@ export const HeroSection = () => {
                         {translations[language].hero_desc}
                     </p>
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                        <a href="#projects" className="cosmic-button">
-                            {translations[language].hero_btn}
-                        </a>
+                        <button className="cosmic-button">
+                            <a href="#projects">
+                                {translations[language].hero_btn}
+                            </a>
+                        </button>
                     </div>
                 </div>
             </div>

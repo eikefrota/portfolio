@@ -57,7 +57,7 @@ export const Navbar = () => {
                         <a
                             key={key}
                             href={item.href}
-                            className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                            className="relative text-foreground/80 hover:text-primary transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full">
                             {translations[language][item.key]}
                         </a>
                     ))}
@@ -78,12 +78,12 @@ export const Navbar = () => {
                 {/* Menu mobile sobreposto */}
                 <div className={cn(
                     "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-                    "transition-all duration-300 md:hidden",
+                    "transition-all duration-500 md:hidden",
                     isMenuOpen
-                        ? "opacity-100 pointer-events-auto"
-                        : "opacity-0 pointer-events-none"
+                        ? "opacity-100 pointer-events-auto translate-y-0"
+                        : "opacity-0 pointer-events-none -translate-y-8"
                 )}>
-                    <div className="flex flex-col space-y-8 text-xl items-center">
+                    <div className="flex flex-col space-y-8 text-xl items-center transition-all duration-500">
                         {navItems.map((item, key) => (
                             <a
                                 key={key}
