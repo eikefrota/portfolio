@@ -5,33 +5,33 @@ import { translations } from "@/lib/translations";
 const projects = [
     {
         id: 1,
-        title: "SaaS Landing Page",
-        description: "A beautiful landing page app using React and Tailwind.",
-        image: "/projects/project1.png",
-        tags: ["React", "TailwindCSS", "Supabase"],
+        title: "QuizDev",
+        description: "Aplicativo de quiz interativo com o objetivo de unir diversão e aprendizado, por meio de quizzes sobre diversos temas.",
+        image: "/projects/quizdev.png",
+        tags: ["React Native", "JavaScript", "Node.js", "PostgreSQL", "Express", "Expo"],
         demoUrl: "#",
-        githubUrl: "#",
+        githubUrl: "https://github.com/eikefrota/quiz-dev",
     },
     {
         id: 2,
-        title: "Orbit Analytics Dashboard",
+        title: "Frota's Gourmet",
         description:
-            "Interactive analytics dashboard with data visualization and filtering capabilities.",
-        image: "/projects/project2.png",
-        tags: ["TypeScript", "D3.js", "Next.js"],
+            "Um cardápio web responsivo que facilita pedidos online, oferecendo uma experiência intuitiva e ágil para o usuário.",
+        image: "/projects/frotasgourmet.png",
+        tags: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
         demoUrl: "#",
-        githubUrl: "#",
+        githubUrl: "https://github.com/eikefrota/frota-gourmet",
     },
     {
         id: 3,
-        title: "E-commerce Platform",
+        title: "Portfolio",
         description:
-            "Full-featured e-commerce platform with user authentication and payment processing.",
-        image: "/projects/project3.png",
-        tags: ["React", "Node.js", "Stripe"],
+            "Meu portfólio pessoal, desenvolvido para apresentar meus projetos, habilidades e experiências de forma clara e interativa, com navegação intuitiva e design responsivo.",
+        image: "/projects/portfolio.png",
+        tags: ["React", "JavaScript", "CSS3", "HTML5"],
         demoUrl: "#",
         githubUrl: "#",
-    },
+    }
 ];
 
 export const ProjectsSection = () => {
