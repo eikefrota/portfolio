@@ -28,14 +28,6 @@ O portfólio tem como objetivo centralizar e destacar meus projetos, experiênci
 
 ---
 
-## 🖼️ Demonstração
-
-<p align="center">
-	<img src="public/projects/portfolio.png" alt="Demonstração do Portfólio" width="800"/>
-</p>
-
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 ### Front-end
@@ -50,7 +42,7 @@ O portfólio tem como objetivo centralizar e destacar meus projetos, experiênci
 
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Vite Plugin React](https://github.com/vitejs/vite-plugin-react)
-- [Toast UI](https://github.com/nhn/toast-ui.react-toastify) (ou biblioteca de toast utilizada)
+- [Toast UI](https://github.com/nhn/toast-ui.react-toastify)
 - [Custom Hooks](src/hooks/)
 
 ---
@@ -92,12 +84,6 @@ public/
 
 4. **Acesse em:**  
 	 [http://localhost:5173](http://localhost:5173)
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
