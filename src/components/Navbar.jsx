@@ -3,22 +3,25 @@
 import { cn } from "@/lib/utils"
 // Importa hooks do React
 import { useEffect, useState } from "react";
+import { useLanguage } from "../hooks/use-language.jsx";
+import { translations } from "../lib/translations";
 // Importa ícones do menu
 import { X, Menu } from "lucide-react";
 // Importa componente de alternância de tema
 import { ThemeToggle } from "./ThemeToggle";
+import LanguageToggle from "./LanguageToggle";
 
-// Itens de navegação do menu
 const navItems = [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" }
+    { key: "home", href: "#hero" },
+    { key: "about", href: "#about" },
+    { key: "skills", href: "#skills" },
+    { key: "projects", href: "#projects" },
+    { key: "contact", href: "#contact" }
 ];
 
 // Componente principal da barra de navegação
 export const Navbar = () => {
+    const { language } = useLanguage();
     // Estado para controlar se a página foi rolada
     const [isScrolled, setIsScrolled] = useState(false);
     // Estado para controlar se o menu mobile está aberto
@@ -55,10 +58,11 @@ export const Navbar = () => {
                             key={key}
                             href={item.href}
                             className="text-foreground/80 hover:text-primary transition-colors duration-300">
-                            {item.name}
+                            {translations[language][item.key]}
                         </a>
                     ))}
                     <ThemeToggle />
+                    <LanguageToggle />
                 </div>
 
                 {/* Botão do menu mobile */}
@@ -85,10 +89,11 @@ export const Navbar = () => {
                                 key={key}
                                 href={item.href}
                                 className="text-foreground/80 hover:text-primary transition-colors duration-300">
-                                {item.name}
+                                {translations[language][item.key]}
                             </a>
                         ))}
                         <ThemeToggle />
+                        <LanguageToggle />
                     </div>
                 </div>
 

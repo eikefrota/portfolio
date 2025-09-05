@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LanguageProvider } from "./hooks/use-language.jsx";
 import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,7 +9,7 @@ import { Toaster } from "@/components/ui/toaster";
 function App() {
 
   return (
-    <>
+    <LanguageProvider>
       {/* Configuração das rotas usando React Router */}
       <Toaster />
       <BrowserRouter>
@@ -19,7 +20,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </LanguageProvider>
   );
 }
 

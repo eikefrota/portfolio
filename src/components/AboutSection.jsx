@@ -1,100 +1,76 @@
 // Importa ícones da biblioteca lucide-react
 import { Briefcase, Code, User } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language.jsx";
+import { translations } from "@/lib/translations";
 
 // Componente principal da seção Sobre (About)
 export const AboutSection = () => {
+    const { language } = useLanguage();
     return (
         <section id="about" className="py-24 px-4 relative">
-            {/* Container centralizado */}
             <div className="container mx-auto max-w-5xl">
-                {/* Título da seção */}
                 <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-                    About <span className="text-primary"> Me</span>
+                    {translations[language].about_title}
                 </h2>
-
-                {/* Grid principal: texto à esquerda, cards à direita */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    {/* Coluna de texto */}
                     <div className="space-y-6">
                         <h3 className="text-2xl font-semibold">
-                            Passionate Web Developer & Tech Creator
+                            {translations[language].about_subtitle}
                         </h3>
-
-                        {/* Parágrafo sobre experiência */}
                         <p className="text-muted-foreground text-justify">
-                            With over 5 years of experience in web development, I specialize
-                            in creating responsive, accessible, and performant web
-                            applications using modern technologies.
+                            {translations[language].about_exp}
                         </p>
-
-                        {/* Parágrafo sobre paixão e aprendizado contínuo */}
                         <p className="text-muted-foreground text-justify">
-                            I'm passionate about creating elegant solutions to complex
-                            problems, and I'm constantly learning new technologies and
-                            techniques to stay at the forefront of the ever-evolving web
-                            landscape.
+                            {translations[language].about_passion}
                         </p>
-
-                        {/* Botões de contato e download de CV */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                             <a href="#contact" className="cosmic-button">
-                                {" "}
-                                Get In Touch
+                                {translations[language].about_btn_contact}
                             </a>
-
                             <a
                                 href=""
                                 className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
                             >
-                                Download CV
+                                {translations[language].about_btn_cv}
                             </a>
                         </div>
                     </div>
-
-                    {/* Coluna de cards de destaque */}
                     <div className="grid grid-cols-1 gap-6">
-                        {/* Card: Web Development */}
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Code className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg"> Web Development</h4>
+                                    <h4 className="font-semibold text-lg">{translations[language].about_card_web}</h4>
                                     <p className="text-muted-foreground">
-                                        Creating responsive websites and web applications with
-                                        modern frameworks.
+                                        {translations[language].about_card_web_desc}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        {/* Card: UI/UX Design */}
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <User className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                                    <h4 className="font-semibold text-lg">{translations[language].about_card_ui}</h4>
                                     <p className="text-muted-foreground">
-                                        Designing intuitive user interfaces and seamless user
-                                        experiences.
+                                        {translations[language].about_card_ui_desc}
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        {/* Card: Project Management */}
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Briefcase className="h-6 w-6 text-primary" />
                                 </div>
-
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">Project Management</h4>
+                                    <h4 className="font-semibold text-lg">{translations[language].about_card_pm}</h4>
                                     <p className="text-muted-foreground">
-                                        Leading projects from conception to completion with agile
-                                        methodologies.
+                                        {translations[language].about_card_pm_desc}
                                     </p>
                                 </div>
                             </div>

@@ -1,4 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { useLanguage } from "@/hooks/use-language.jsx";
+import { translations } from "@/lib/translations";
 
 const projects = [
     {
@@ -33,19 +35,16 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+    const { language } = useLanguage();
     return (
         <section id="projects" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-5xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-                    {" "}
-                    Featured <span className="text-primary"> Projects </span>
+                    {translations[language].projects_title}
                 </h2>
-
                 <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-                    Here are some of my recent projects. Each project was carefully
-                    crafted with attention to detail, performance, and user experience.
+                    {translations[language].projects_desc}
                 </p>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, key) => (
                         <div
@@ -59,7 +58,6 @@ export const ProjectsSection = () => {
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
-
                             <div className="p-6">
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag) => (
@@ -68,7 +66,6 @@ export const ProjectsSection = () => {
                                         </span>
                                     ))}
                                 </div>
-
                                 <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
                                 <p className="text-muted-foreground text-sm mb-4">
                                     {project.description}
@@ -95,14 +92,13 @@ export const ProjectsSection = () => {
                         </div>
                     ))}
                 </div>
-
                 <div className="text-center mt-12">
                     <a
                         className="cosmic-button w-fit flex items-center mx-auto gap-2"
                         target="_blank"
                         href="https://github.com/eikefrota"
                     >
-                        Check My Github <ArrowRight size={16} />
+                        {translations[language].projects_btn} <ArrowRight size={16} />
                     </a>
                 </div>
             </div>
