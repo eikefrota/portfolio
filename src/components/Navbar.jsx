@@ -43,16 +43,16 @@ export const Navbar = () => {
             isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5")}>
 
             <div className="container flex items-center justify-between">
-
                 {/* Logo e link para o topo */}
-                <a className="text-xl font-bold text-primary flex items-center" href="#hero">
-                    <span className="relative z-10">
-                        <span className="text-glow text-foreground">EikeFrota</span> Portfolio
-                    </span>
-                </a>
-
-                {/* Navegação desktop */}
-                <div className="hidden md:flex space-x-8 items-center">
+                <div className="flex-1 flex items-center justify-start">
+                    <a className="text-xl font-bold text-primary flex items-center" href="#hero">
+                        <span className="relative z-10">
+                            <span className="text-glow text-foreground">EikeFrota</span> Portfolio
+                        </span>
+                    </a>
+                </div>
+                {/* Menu centralizado */}
+                <div className="hidden md:flex flex-1 justify-center items-center space-x-8">
                     {navItems.map((item, key) => (
                         <a
                             key={key}
@@ -61,10 +61,12 @@ export const Navbar = () => {
                             {translations[language][item.key]}
                         </a>
                     ))}
+                </div>
+                {/* Botões à direita */}
+                <div className="hidden md:flex flex-1 justify-end items-center space-x-2">
                     <ThemeToggle />
                     <LanguageToggle />
                 </div>
-
                 {/* Botão do menu mobile */}
                 <button
                     onClick={() => setIsMenuOpen((prev) => !prev)}
@@ -73,7 +75,6 @@ export const Navbar = () => {
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />} {" "}
                 </button>
-
                 {/* Menu mobile sobreposto */}
                 <div className={cn(
                     "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
@@ -82,7 +83,6 @@ export const Navbar = () => {
                         ? "opacity-100 pointer-events-auto"
                         : "opacity-0 pointer-events-none"
                 )}>
-
                     <div className="flex flex-col space-y-8 text-xl items-center">
                         {navItems.map((item, key) => (
                             <a
@@ -96,7 +96,6 @@ export const Navbar = () => {
                         <LanguageToggle />
                     </div>
                 </div>
-
             </div>
         </nav>
     );
