@@ -15,13 +15,13 @@ export const AboutSection = () => {
                             Passionate Web Developer & Tech Creator
                         </h3>
 
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground text-justify">
                             With over 5 years of experience in web development, I specialize
                             in creating responsive, accessible, and performant web
                             applications using modern technologies.
                         </p>
 
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground text-justify">
                             I'm passionate about creating elegant solutions to complex
                             problems, and I'm constantly learning new technologies and
                             techniques to stay at the forefront of the ever-evolving web
@@ -45,7 +45,7 @@ export const AboutSection = () => {
 
                     <div className="grid grid-cols-1 gap-6">
                         <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Code className="h-6 w-6 text-primary" />
                                 </div>
@@ -59,7 +59,7 @@ export const AboutSection = () => {
                             </div>
                         </div>
                         <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <User className="h-6 w-6 text-primary" />
                                 </div>
@@ -73,7 +73,7 @@ export const AboutSection = () => {
                             </div>
                         </div>
                         <div className="gradient-border p-6 card-hover">
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
                                     <Briefcase className="h-6 w-6 text-primary" />
                                 </div>
