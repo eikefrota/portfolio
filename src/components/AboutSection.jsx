@@ -1,5 +1,5 @@
 // Importa ícones da biblioteca lucide-react
-import { Briefcase, Code, User } from "lucide-react";
+import { Briefcase, Code, Smartphone } from "lucide-react";
 import { useLanguage } from "@/hooks/use-language.jsx";
 import { translations } from "@/lib/translations";
 
@@ -52,7 +52,7 @@ export const AboutSection = () => {
                         <div className="gradient-border p-6 card-hover">
                             <div className="flex items-center gap-4">
                                 <div className="p-3 rounded-full bg-primary/10">
-                                    <User className="h-6 w-6 text-primary" />
+                                    <Smartphone className="h-6 w-6 text-primary" />
                                 </div>
                                 <div className="text-left">
                                     <h4 className="font-semibold text-lg">{translations[language].about_card_ui}</h4>

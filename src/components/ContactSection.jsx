@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useLanguage } from "@/hooks/use-language.jsx";
 import { translations } from "@/lib/translations";
 
+
 export const ContactSection = () => {
     const { toast } = useToast();
     const { language } = useLanguage();
@@ -16,15 +17,23 @@ export const ContactSection = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setTimeout(() => {
-            toast({
-                title: translations[language].contact_form_sent,
-                description: translations[language].contact_form_sent_desc,
-            });
-            setIsSubmitting(false);
-            e.target.reset();
-        }, 1500);
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const message = form.message.value;
+        // Monta a mensagem para o WhatsApp
+        const text = `Nome: ${name}%0AEmail: ${email}%0AMensagem: ${message}`;
+        const phone = '5585999062339'; // Seu número com DDI e DDD
+        const url = `https://wa.me/${phone}?text=${text}`;
+        window.open(url, '_blank');
+        setIsSubmitting(false);
+        form.reset();
+        toast({
+            title: translations[language].contact_form_sent,
+            description: translations[language].contact_form_sent_desc,
+        });
     };
+
     return (
         <section id="contact" className="py-24 px-4 relative bg-secondary/30">
             <div className="container mx-auto max-w-5xl">
@@ -122,12 +131,9 @@ export const ContactSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div
-                        className="bg-card p-8 rounded-lg shadow-xs"
-                        onSubmit={handleSubmit}
-                    >
+                    <div className="bg-card p-8 rounded-lg shadow-xs">
                         <h3 className="text-2xl font-semibold mb-6">{translations[language].contact_form_title}</h3>
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             <div>
                                 <label
                                     htmlFor="name"
@@ -192,3 +198,4 @@ export const ContactSection = () => {
         </section>
     );
 };
+
