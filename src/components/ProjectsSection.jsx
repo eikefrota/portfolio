@@ -19,7 +19,7 @@ const projects = [
             "Um cardápio web responsivo que facilita pedidos online, oferecendo uma experiência intuitiva e ágil para o usuário.",
         image: "/projects/frotasgourmet.png",
         tags: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
-        demoUrl: "#",
+        demoUrl: "https://frotagourmet.netlify.app",
         githubUrl: "https://github.com/eikefrota/frota-gourmet",
     },
     {
@@ -29,8 +29,8 @@ const projects = [
             "Meu portfólio pessoal, desenvolvido para apresentar meus projetos, habilidades e experiências de forma clara e interativa, com navegação intuitiva e design responsivo.",
         image: "/projects/portfolio.png",
         tags: ["React", "Vite", "JavaScript", "Tailwind CSS"],
-        demoUrl: "#",
-        githubUrl: "#",
+        demoUrl: "https://eikefrotaportfolio.netlify.app",
+        githubUrl: "https://github.com/eikefrota/portfolio",
     }
 ];
 

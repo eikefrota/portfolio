@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils"
 // Importa hooks do React
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLanguage } from "../hooks/use-language.jsx";
 import { translations } from "../lib/translations";
 // Importa ícones do menu
@@ -26,6 +27,18 @@ export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     // Estado para controlar se o menu mobile está aberto
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // Bloqueia o scroll do body quando o menu mobile está aberto
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+        // Cleanup para garantir que não fique preso
+        return () => {
+            document.body.classList.remove('overflow-hidden');
+        };
+    }, [isMenuOpen]);
 
     useEffect(() => {
         // Função para atualizar o estado ao rolar a página
@@ -40,8 +53,8 @@ export const Navbar = () => {
     return (
         <nav className={cn(
             "fixed w-full z-40 transition-all duration-300",
-            isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5")}>
-
+            isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5")}
+        >
             <div className="container flex items-center justify-between">
                 {/* Logo e link para o topo */}
                 <div className="flex-1 flex items-center justify-start">
@@ -75,28 +88,41 @@ export const Navbar = () => {
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />} {" "}
                 </button>
-                {/* Menu mobile sobreposto */}
+            </div>
+            {/* Menu mobile sobreposto via portal */}
+            {typeof window !== 'undefined' && createPortal(
                 <div className={cn(
-                    "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+                    "fixed inset-0 bg-background/95 backdrop-blur-md z-[9999] flex flex-col items-center justify-center",
                     "transition-all duration-500 md:hidden",
                     isMenuOpen
                         ? "opacity-100 pointer-events-auto translate-y-0"
                         : "opacity-0 pointer-events-none -translate-y-8"
                 )}>
+                    {/* Botão X para fechar o menu, canto superior direito */}
+                    <button
+                        onClick={() => setIsMenuOpen(false)}
+                        className="absolute top-6 right-6 p-2 text-foreground z-[101]"
+                        aria-label="Fechar Menu"
+                    >
+                        <X size={32} />
+                    </button>
                     <div className="flex flex-col space-y-8 text-xl items-center transition-all duration-500">
                         {navItems.map((item, key) => (
                             <a
                                 key={key}
                                 href={item.href}
-                                className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
                                 {translations[language][item.key]}
                             </a>
                         ))}
                         <ThemeToggle />
                         <LanguageToggle />
                     </div>
-                </div>
-            </div>
+                </div>,
+                document.body
+            )}
         </nav>
     );
 };
