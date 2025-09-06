@@ -28,7 +28,8 @@ export const AboutSection = () => {
                                 {translations[language].about_btn_contact}
                             </a>
                             <a
-                                href=""
+                                href="/CV Eike Frota.pdf"
+                                download
                                 className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
                             >
                                 {translations[language].about_btn_cv}
