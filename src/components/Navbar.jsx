@@ -40,8 +40,8 @@ export const Navbar = () => {
     return (
         <nav className={cn(
             "fixed w-full z-40 transition-all duration-300",
-            isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5")}>
-
+            isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5")}
+        >
             <div className="container flex items-center justify-between">
                 {/* Logo e link para o topo */}
                 <div className="flex-1 flex items-center justify-start">
@@ -75,26 +75,26 @@ export const Navbar = () => {
                 >
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />} {" "}
                 </button>
-                {/* Menu mobile sobreposto */}
-                <div className={cn(
-                    "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-                    "transition-all duration-500 md:hidden",
-                    isMenuOpen
-                        ? "opacity-100 pointer-events-auto translate-y-0"
-                        : "opacity-0 pointer-events-none -translate-y-8"
-                )}>
-                    <div className="flex flex-col space-y-8 text-xl items-center transition-all duration-500">
-                        {navItems.map((item, key) => (
-                            <a
-                                key={key}
-                                href={item.href}
-                                className="text-foreground/80 hover:text-primary transition-colors duration-300">
-                                {translations[language][item.key]}
-                            </a>
-                        ))}
-                        <ThemeToggle />
-                        <LanguageToggle />
-                    </div>
+            </div>
+            {/* Menu mobile sobreposto - FORA do container principal */}
+            <div className={cn(
+                "fixed inset-0 bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center",
+                "transition-all duration-500 md:hidden",
+                isMenuOpen
+                    ? "opacity-100 pointer-events-auto translate-y-0"
+                    : "opacity-0 pointer-events-none -translate-y-8"
+            )}>
+                <div className="flex flex-col space-y-8 text-xl items-center transition-all duration-500">
+                    {navItems.map((item, key) => (
+                        <a
+                            key={key}
+                            href={item.href}
+                            className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                            {translations[language][item.key]}
+                        </a>
+                    ))}
+                    <ThemeToggle />
+                    <LanguageToggle />
                 </div>
             </div>
         </nav>
