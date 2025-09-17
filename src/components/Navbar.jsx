@@ -27,6 +27,8 @@ export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     // Estado para controlar se o menu mobile está aberto
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // Estado para hover da logo
+    const [isLogoHovered, setIsLogoHovered] = useState(false);
     // Bloqueia o scroll do body quando o menu mobile está aberto
     useEffect(() => {
         if (isMenuOpen) {
@@ -58,7 +60,17 @@ export const Navbar = () => {
             <div className="container flex items-center justify-between">
                 {/* Logo e link para o topo */}
                 <div className="flex-1 flex items-center justify-start">
-                    <a className="text-xl font-bold text-primary flex items-center" href="#hero">
+                    <a
+                        className="text-xl font-bold text-primary flex items-center"
+                        href="#hero"
+                        style={{
+                            transition: 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+                            transform: isLogoHovered ? 'scale(1.08) rotate(-2deg)' : 'none',
+                            display: 'inline-block',
+                        }}
+                        onMouseEnter={() => setIsLogoHovered(true)}
+                        onMouseLeave={() => setIsLogoHovered(false)}
+                    >
                         <span className="relative z-10">
                             <span className="text-glow text-foreground">EikeFrota</span> Portfolio
                         </span>
